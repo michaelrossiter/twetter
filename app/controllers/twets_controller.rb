@@ -7,7 +7,7 @@ class TwetsController < ApplicationController
   # This action uses the #get_twets method to set the @twets instance variable.
   #
   #   @twets # => All twets defaultly shown to the authenticated user.
-  #
+
   def index
     get_twets
   end
