@@ -7,16 +7,19 @@
     <div class="pull-left">
       <h4>Twets</h4>
     </div>
+    <%= follow_link(@user, profile_path(:username => @user.username)) if @user and @user.id != current_user.id %>
     <div class="clearfix"></div>
     <hr />
     <ol class="list-unstyled">
       <% @twets.each do |twet| -%>
-      <li>
-        <%= content_tag :strong, twet.user.name, :class => 'pull-left text-middle' %>
-        <%= content_tag :small, "@"+twet.user.username, :class => 'text-muted pad-10 text-middle' %>
-        <%= content_tag :small, twet.created_at.strftime("%b %-d"), :class => 'text-muted text-middle pull-right' %>
-        <div class="clearfix"></div>
-        <%= content_tag :p, twet.content %>
+        <li>
+        <span class="pull-left" style="margin-top:8px;"><%= image_tag gravatar_url(twet.user) %></span>
+        <span style="margin-left:6px;">
+          <%= content_tag :strong, twet.user.name, :class => 'text-middle' %>
+          <%= content_tag :small, "@"+twet.user.username, :class => 'text-muted pad-10 text-middle' %>
+          <%= content_tag :small, twet.created_at.strftime("%b %-d"), :class => 'text-muted text-middle pull-right' %>
+        </span>
+        <%= content_tag :p, twet.content, :style => "margin-left:54px;" %>
       </li>
       <li><hr></li>
       <% end -%>
