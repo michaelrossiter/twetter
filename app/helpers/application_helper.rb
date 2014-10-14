@@ -31,6 +31,11 @@ module ApplicationHelper
     content_tag(:li, link_to(name, path), :class => active_class(name))
   end
 
+  def gravatar_url(user)
+    gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
+    "http://www.gravatar.com/avatar/#{gravatar_id}.png?s=48"
+  end
+
   # Generates HTML for notices based on the flash variable. Leverages #notice_class to
   # determine the look of each notice type.
   #
