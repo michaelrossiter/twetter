@@ -6,8 +6,6 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-require './lib/mention_linker.rb'
-
 module Twetter
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -28,7 +26,5 @@ module Twetter
       "#{html_tag}".html_safe
     }
 
-    # Use our MentionLinker class to replace @mentions with a profile link
-    config.middleware.insert_before ActionDispatch::ParamsParser, MentionLinker
   end
 end
