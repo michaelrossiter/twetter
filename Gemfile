@@ -40,6 +40,10 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
+
+gem 'rails_12factor', '0.0.2', :group => :production
+
+
 # Use Devise for authentication: https://github.com/plataformatec/devise#getting-started
 gem 'devise'
 
@@ -47,13 +51,13 @@ gem 'devise'
 gem 'unicorn', :group => :production
 
 
-group :development, :test do
-  # Use RSpec for testing: https://github.com/rspec/rspec-rails
-  gem 'rspec-rails', '~> 2.0'
+
+gem 'rspec-rails', '~> 2.0' , :groups => [:development, :test]
   # Use Factory Girl for Active Record sample instance object creation: https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
-  gem 'factory_girl_rails'
+gem 'factory_girl_rails', :groups => [:development, :test]
   # Use FFaker for random seed generation: https://github.com/EmmanuelOga/ffaker
-  gem 'ffaker'
+
+gem 'ffaker'
+
   # Use Shoulda Matchers for validation and association testing: https://github.com/thoughtbot/shoulda-matchers
-  gem 'shoulda-matchers'
-end
+gem 'shoulda-matchers', :groups => [:development, :test]
