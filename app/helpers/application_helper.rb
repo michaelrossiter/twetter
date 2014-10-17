@@ -91,4 +91,11 @@ module ApplicationHelper
     html += content_tag :strong, flash[type]
     html.html_safe
   end
+
+
+ def link_mentions(content)
+    content.gsub(/(?<prefix>[>| ])@(?<username>(\w+))/, '\k<prefix><a href="/\k<username>">@\k<username></a>') if content
+  end
+
+
 end

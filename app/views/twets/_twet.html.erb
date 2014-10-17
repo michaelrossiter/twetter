@@ -8,7 +8,9 @@
           <%= content_tag :small, "@"+twet.user.username, :class => 'text-muted pad-10' %>
           <%= content_tag :small, twet.created_at.strftime("%b %-d"), :class => 'text-muted pull-right' %>
           <div class="clearfix"></div>
-          <%= content_tag :p, twet.content %>
+          
+          <%= content_tag :p, link_mentions(twet.content) %>
+          
           <div class="clearfix"></div>
           <% if can_retwet(twet) -%>
           <%= content_tag :div, :class => 'pull-right' do %>
