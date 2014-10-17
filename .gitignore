@@ -16,7 +16,5 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 .project
-config/initializers/secret_token.rb
 .DS_Store
 ./lib/mention_linker.rb
-config/initializers/secret_token.rb
