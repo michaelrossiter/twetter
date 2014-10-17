@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 module ApplicationHelper
   # Being the ApplicationHelper, all methods herein are available in all views.
 
@@ -22,6 +24,11 @@ module ApplicationHelper
         html.html_safe
       end
     end
+  end
+
+  # http://en.gravatar.com/site/implement/images/ruby/
+  def gravatar(user, opts = { :size => 48 })
+    "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email.downcase)}?s=#{opts[:size]}"
   end
 
   # Generates a left navigation link setting the class according to the result of a
@@ -89,4 +96,11 @@ module ApplicationHelper
     html += content_tag :strong, flash[type]
     html.html_safe
   end
+
+
+ def link_mentions(content)
+    content.gsub(/(?<prefix>[>| ])@(?<username>(\w+))/, '\k<prefix><a href="/\k<username>">@\k<username></a>') if content
+  end
+
+
 end
