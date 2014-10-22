@@ -102,5 +102,4 @@ module ApplicationHelper
     content.gsub(/(?<prefix>[>| ])@(?<username>(\w+))/, '\k<prefix><a href="/\k<username>">@\k<username></a>') if content
   end
 
-
 end
