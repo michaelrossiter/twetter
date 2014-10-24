@@ -10,9 +10,6 @@ class TwetsController < ApplicationController
 
   def index
     get_twets
-    @retwets = Twet.all do
-      twet.retwet.all
-    end
   end
 
   # POST /twets

@@ -10,13 +10,14 @@
           <div class="clearfix"></div>
           
           <%= content_tag :p, link_mentions(twet.content) %>
+          <p>
           
 
 
 
           <div class="clearfix"></div>
 
-          <% @retwets.each do |retwet| %>
+          <% twet.retwets.each do |retwet| %>
           <%= link_to image_tag(gravatar(retwet.user)), user_path(retwet.user), :class => 'img-rounded', :style => 'width: 20px;' %>
           <%end%>
 
