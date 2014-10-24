@@ -11,7 +11,15 @@
           
           <%= content_tag :p, link_mentions(twet.content) %>
           
+
+
+
           <div class="clearfix"></div>
+
+          <% @retwets.each do |retwet| %>
+          <%= link_to image_tag(gravatar(retwet.user)), user_path(retwet.user), :class => 'img-rounded', :style => 'width: 20px;' %>
+          <%end%>
+
           <% if can_retwet(twet) -%>
           <%= content_tag :div, :class => 'pull-right' do %>
             <%= form_for :retwet, :url => retwets_path,
@@ -23,6 +31,7 @@
               <%= f.submit "Retwet".html_safe, :class => 'btn btn-link smaller' %>
             <% end %>
           <% end %>
+          
           <div class="clearfix"></div>
           <% elsif has_retweted(twet) -%>
           <%= content_tag :div, :class => 'pull-right' do %>
@@ -34,6 +43,7 @@
               <%= f.submit 'Retweted', :class => 'btn btn-link text-success smaller' %>
             <% end %>
           <% end %>
+          
           <% end %>
         </td>
       </tr>

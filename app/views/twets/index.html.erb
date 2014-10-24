@@ -3,13 +3,19 @@
 
   <%= render :partial => 'shared/left_nav' %>
 
+
   <div class="panel panel-default col-md-8 text-left">
+
     <div class="pull-left">
       <h4>Twets</h4>
     </div>
+
     <%= follow_link(@user, profile_path(:username => @user.username)) if @user and @user.id != current_user.id %>
+
     <div class="clearfix"></div>
+
     <hr />
+    
     <ol class="list-unstyled">
       <%= render :partial => 'twet', :collection => @twets %>
     </ol>
